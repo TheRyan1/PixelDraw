@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+
+    function drawGrid(){
+    
+    var row = document.getElementById("row_Input").value -1;
+    var coll  = document.getElementById("col_Input").value -1;
+    var the_table = document.getElementById("myTable");
+    var color = document.getElementById("clr_pick");
+
+
+    while(the_table.firstChild) {
+		
+		the_table.removeChild(the_table.firstChild);
+		
+	}
+    
+    for(i=0; i<=row; i++){
+    
+       tb_row = the_table.insertRow(i);
+        
+        for(y=0; y<=coll;y++){
+            
+           var cell = tb_row.insertCell(y);
+           cell.addEventListener("mousedown", function() {
+				
+				this.style.backgroundColor = color.value;
+			});
+    
+        }
+        
+      
+       
+    }
+     
+
+    
+    }
+    
+    
+    
+  
+
+    
+    </script>
+<style>
+body{
+    font-family:  'Open Sans', 'Helvetica Neue', sans-serif;
+}
+table{
+
+    border-collapse: collapse;
+}
+   
+
+table tr td {
+
+    border: solid 1px black;
+    height: 20px;
+    width: 20px;
+}
+
+main{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+button{
+width: 100px;
+height: 40px;
+border: none;
+    background-color: rgba(245, 131, 150, 0.808);
+}
+.main{
+
+   margin: 0 auto;
+    margin-top: 50px;
+}
+
+.but{
+
+   
+   margin-top: 20px;
+}
+
+.in{
+width: 400px;
+height: 50px;
+font-size: 120%;
+    background-color: rgba(50, 172, 243, 0.644);
+    border: none;
+    text-align: center;
+}
+
+.clrpick{
+
+    margin-top: 30px;
+}
+
+table{
+
+    margin-left: auto;
+  margin-right: auto;
+}
+   
+</style>
+</head>
+
+<body>
+<header>
+
+    <nav>
+
+        
+    </nav>
+</header>
+<main>
+<section class="about">
+    <img src="./images/hdimg.png" alt="Pixel Draw">
+</section>
+<section class="main">
+<input class="in" type="number" id="row_Input" min="1" max="64" value="1">
+<input class="in" type="number" id="col_Input" min="1" max="64" value="1"> 
+<div class="but">
+<button onclick="drawGrid()" onclick="mkb()">Let me Draw</button>
+</div>
+
+<div class="tablemain">
+<table id="myTable">
+
+
+
+
+
+
+</table></div>
+
+
+<input class="clrpic" type="color" id="clr_pick"><p>Choose a color </p>
+
+</section>
+</main>
+</body>
+
+
+
+</html>
